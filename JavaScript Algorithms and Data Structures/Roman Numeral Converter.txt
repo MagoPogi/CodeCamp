@@ -1,0 +1,47 @@
+const numbers = [3999, 2014, 1023, 1006, 1004, 1000, 891, 798, 649, 501, 500, 400, 99, 97, 83, 68, 45, 44, 29, 16, 12, 9, 5, 4, 3, 2, 1];
+const converter = {
+ 1:"I",
+ 2:"II",
+ 3:"III",
+ 4:"IV",
+ 5:"V",
+ 9:"IX",
+ 12:"XII",
+ 16:"XVI",
+ 29:"XXIX",
+ 44:"XLIV",
+ 45:"XLV",
+ 68:"LXVIII",
+ 83:"LXXXIII",
+ 97:"XCVII",
+ 99:"XCIX",
+ 400:"CD",
+ 500:"D",
+ 501:"DI",
+ 649:"DCXLIX",
+ 798:"DCCXCVIII",
+ 891:"DCCCXCI",
+  1000:"M",
+  1004:"MIV",
+  1006:"MVI",
+  1023:"MXXIII",
+  2014:"MMXIV",
+  3999:"MMMCMXCIX"
+  
+};
+
+function convertToRoman(num) {
+  let output = '';
+  let i = 0;
+  while (num > 0){
+    const subtract = numbers[i];
+    if (subtract > num){
+      i++;
+    }else {
+      num -= subtract;
+      output += converter[subtract];
+    }
+  }
+  return output;
+}
+console.log(convertToRoman(36));
